@@ -23,7 +23,7 @@ class Curso(Base):
 
 
 class Avaliacao(Base):
-    curso = models.ForeignKey(Curso, related_name='avaliacoes', on_delete=models.CASCADE)
+    curso = models.ForeignKey(Curso, related_name='avaliacoes', on_delete=models.CASCADE) # noqa
     nome = models.CharField(max_length=255)
     email = models.EmailField()
     comentario = models.TextField(blank=True, default='')
@@ -35,4 +35,4 @@ class Avaliacao(Base):
         unique_together = ['email', 'curso']
 
     def __str__(self):
-        return f'{self.nome} avaliou o curso {self.curso} com nota {self.avaliacao}'
+        return f'{self.nome} avaliou o curso {self.curso} com nota {self.avaliacao}' # noqa
