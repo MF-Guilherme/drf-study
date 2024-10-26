@@ -25,6 +25,8 @@ class AvaliacaoSerializer(serializers.ModelSerializer):
 
 
 class CursoSerializer(serializers.ModelSerializer):
+    # Nested Relationship
+    avaliacoes = AvaliacaoSerializer(many=True, read_only=True) # muitos dados / apenas leitura
 
     class Meta:
         model = Curso
@@ -33,5 +35,6 @@ class CursoSerializer(serializers.ModelSerializer):
             'titulo',
             'url',
             'criacao',
-            'ativo'
+            'ativo',
+            'avaliacoes',
         )
