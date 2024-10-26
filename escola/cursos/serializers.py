@@ -5,9 +5,9 @@ from .models import Curso, Avaliacao
 class AvaliacaoSerializer(serializers.ModelSerializer):
 
     class Meta:
-        # email somente para quando for cadastrar, não será exibido
+        # email somente para quando for cadastrar, não será exibido (por segurança)
         extra_kwargs = {
-            'email': {'write_only': True}
+            'email': {'write_only': True},
         }
         model = Avaliacao
 
